@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 
-import org.apache.commons.cli.ParseException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.rendering.ImageType;
@@ -156,36 +155,6 @@ public class Utils {
         return !is16orLess || (useLegacySort != null && useLegacySort.equals("true"));
     }
 
-
-    public static List<Integer> parsePagesOption(String pagesSpec) throws ParseException {
-        if (pagesSpec.equals("all")) {
-            return null;
-        }
-
-        List<Integer> rv = new ArrayList<>();
-
-        String[] ranges = pagesSpec.split(",");
-        for (int i = 0; i < ranges.length; i++) {
-            String[] r = ranges[i].split("-");
-            if (r.length == 0 || !Utils.isNumeric(r[0]) || r.length > 1 && !Utils.isNumeric(r[1])) {
-                throw new ParseException("Syntax error in page range specification");
-            }
-
-            if (r.length < 2) {
-                rv.add(Integer.parseInt(r[0]));
-            } else {
-                int t = Integer.parseInt(r[0]);
-                int f = Integer.parseInt(r[1]);
-                if (t > f) {
-                    throw new ParseException("Syntax error in page range specification");
-                }
-                rv.addAll(Utils.range(t, f + 1));
-            }
-        }
-
-        Collections.sort(rv);
-        return rv;
-    }
 
     public static void snapPoints(List<? extends Line2D.Float> rulings, float xThreshold, float yThreshold) {
 

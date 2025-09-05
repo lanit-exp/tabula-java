@@ -16,8 +16,7 @@ import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import static java.awt.geom.PathIterator.*;
 
@@ -26,7 +25,6 @@ class ObjectExtractorStreamEngine extends PDFGraphicsStreamEngine {
     protected List<Ruling> rulings;
     private AffineTransform pageTransform;
     private boolean extractRulingLines = true;
-    private Logger logger;
     private int clipWindingRule = -1;
     private GeneralPath currentPath = new GeneralPath();
 
@@ -34,7 +32,6 @@ class ObjectExtractorStreamEngine extends PDFGraphicsStreamEngine {
 
     protected ObjectExtractorStreamEngine(PDPage page) {
         super(page);
-        logger = LoggerFactory.getLogger(ObjectExtractorStreamEngine.class);
         rulings = new ArrayList<>();
 
         // Calculate page transform:
