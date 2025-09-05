@@ -3,7 +3,7 @@
 
     <groupId>com.github.lanit-exp</groupId>
     <artifactId>tabula</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <name>Tabula</name>
     <description>Extract tables from PDF files</description>
@@ -28,7 +28,7 @@
         <url>https://github.com/lanit-exp/tabula-java</url>
         <connection>scm:git:git@github.com:lanit-exp/tabula-java.git</connection>
         <developerConnection>scm:git:git@github.com:lanit-exp/tabula-java.git</developerConnection>
-        <tag>tabula-1.0.0</tag>
+        <tag>1.0.0</tag>
     </scm>
 
     <properties>
